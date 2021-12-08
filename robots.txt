@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://github.com/sitemap/sitemap-index.xml
-Host: https://github.com
+Sitemap: https://running-page-thomas-lv.vercel.app/sitemap/sitemap-index.xml
+Host: https://running-page-thomas-lv.vercel.app
