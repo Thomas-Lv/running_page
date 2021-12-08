@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://thomaslv.run/sitemap/sitemap-index.xml
-Host: https://thomaslv.run
+Sitemap: https://github.com/sitemap/sitemap-index.xml
+Host: https://github.com
