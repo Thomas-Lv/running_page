@@ -19,8 +19,8 @@ jobs:
     - name: Set Variables
       id: set_variables
       run: |
-        echo "PY=$(python -c 'import hashlib, sys;print(hashlib.sha256(sys.version.encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_OUTPUT
-        echo "PIP_CACHE=$(pip cache dir)" >> $GITHUB_OUTPUT
+        echo "::set-output name=PY::$(python -c 'import hashlib, sys;print(hashlib.sha256(sys.version.encode()+sys.executable.encode()).hexdigest())')"
+        echo "::set-output name=PIP_CACHE::$(pip cache dir)"
     - name: Cache PIP
       uses: actions/cache@v2
       with:
@@ -32,3 +32,5 @@ jobs:
         pip install -r requirements-dev.txt
     - name: Check formatting (black)
       run: black . --check
+    - name: Run isort
+      run: isort --profile black  **/**/*.py -c -v
