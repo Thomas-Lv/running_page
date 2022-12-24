@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import argparse
 import json
 import logging
@@ -94,10 +97,7 @@ def run(refresh_token):
             # ignore NTC record
             app_id = activity["app_id"]
             activity_id = activity["id"]
-            if (
-                app_id == "com.nike.ntc.brand.ios"
-                or app_id == "com.nike.ntc.brand.droid"
-            ):
+            if app_id == "com.nike.ntc.brand.ios":
                 logger.info(f"Ignore NTC record {activity_id}")
                 continue
 

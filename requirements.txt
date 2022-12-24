@@ -1,9 +1,10 @@
-httpx>=0.15.0,<=0.15.5
+httpx==0.15.4
 gpxpy==1.4.2
-stravalib
+# stravalib==0.10.2
+git+https://github.com/hozn/stravalib.git
 appdirs>=1.4.0
 svgwrite>=1.1.9
-colour>=0.1.5
+colour
 s2sphere
 arrow
 geopy
@@ -12,12 +13,4 @@ sqlalchemy
 timezonefinder
 pyyaml
 aiofiles
-cloudscraper==1.2.58
-python-tcxparser
-rich
-lxml
-eviltransform
-stravaweblib
-tenacity
-numpy
-tzlocal
+cloudscraper

@@ -18,7 +18,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-transformer-json',
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -37,15 +36,28 @@ module.exports = {
         rootFolder: './',
       },
     },
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-responsive-iframe',
+          'gatsby-remark-smartypants',
+          'gatsby-remark-widows',
+          'gatsby-remark-external-links',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              className: 'header-link',
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        cssLoaderOptions: {
-          esModule: false,
-          modules: {
-            namedExport: false,
-          },
-        },
+        precision: 8,
       },
     },
     {
@@ -64,34 +76,17 @@ module.exports = {
         start_url: '/',
         background_color: '#e1e1e1',
         theme_color: '#e1e1e1',
-        display: 'standalone',
+        display: 'minimal-ui',
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-offline`,
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        runtimeCaching: [
-          {
-            urlPattern: /^https?:.*\/icons\/.*\.png/,
-            handler: `CacheFirst`,
-          },
-          {
-            urlPattern:
-              /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-            handler: `StaleWhileRevalidate`,
-          },
-          {
-            urlPattern: /^https?:\/\/api\.mapbox\.com\//,
-            handler: `StaleWhileRevalidate`,
-          },
-          {
-            urlPattern: /^https?:.*\/page-data\/.*\.json/,
-            handler: `StaleWhileRevalidate`,
-          },
-        ],
-        skipWaiting: true,
-        clientsClaim: true,
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
   ],
