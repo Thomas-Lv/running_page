@@ -5,12 +5,12 @@ const MAPBOX_TOKEN =
   // (please refer to https://github.com/yihong0618/running_page/issues/643#issuecomment-2042668580)
   'pk.eyJ1IjoieWlob25nMDYxOCIsImEiOiJja2J3M28xbG4wYzl0MzJxZm0ya2Fua2p2In0.PNKfkeQwYuyGOTT_x9BJ4Q';
 const MUNICIPALITY_CITIES_ARR = [
-  '北京市',
-  '上海市',
-  '天津市',
-  '重庆市',
-  '香港特别行政区',
-  '澳门特别行政区',
+  // '北京市',
+  // '上海市',
+  // '天津市',
+  // '重庆市',
+  // '香港特别行政区',
+  // '澳门特别行政区',
 ];
 const MAP_LAYER_LIST = [
   'road-label',
@@ -56,7 +56,8 @@ const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
 };
 const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
   `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
-
+const MOTTO_MESSAGE = "明明这么痛苦，这么难过，为什么就是不能放弃跑步？因为全身细胞都在蠢蠢欲动，想要感受强风迎面吹拂的滋味。";
+const MOTTO_TITLE = "《强风吹拂》";
 // not support English for now
 const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
   '我跑过了一些地方，希望随着时间推移，地图点亮的地方越来越多';
@@ -118,6 +119,8 @@ export {
   LIGHTS_ON,
   RICH_TITLE,
   ACTIVITY_TYPES,
+  MOTTO_MESSAGE,
+  MOTTO_TITLE,
 };
 
 const nike = 'rgb(224,237,94)'; // if you want change the main color change here src/styles/variables.scss

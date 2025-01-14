@@ -1,6 +1,6 @@
 import YearStat from '@/components/YearStat';
 import useActivities from '@/hooks/useActivities';
-import { INFO_MESSAGE } from '@/utils/const';
+import {INFO_MESSAGE, MOTTO_MESSAGE, MOTTO_TITLE} from '@/utils/const';
 
 const YearsStat = ({ year, onClick }: { year: string, onClick: (_year: string) => void }) => {
   const { years } = useActivities();
@@ -16,10 +16,14 @@ const YearsStat = ({ year, onClick }: { year: string, onClick: (_year: string) =
       <section className="pb-0">
         <p className="leading-relaxed">
           {INFO_MESSAGE(years.length, year)}
-          <br />
+          <br/>
+          <br/>
+          {MOTTO_MESSAGE}
+          <br/>
+          <p style={quoteStyle}>&ndash;&ndash;{MOTTO_TITLE}</p>
         </p>
       </section>
-      <hr color="red" />
+      <hr color="red"/>
       {yearsArrayUpdate.map((year) => (
         <YearStat key={year} year={year} onClick={onClick} />
       ))}
@@ -31,6 +35,11 @@ const YearsStat = ({ year, onClick }: { year: string, onClick: (_year: string) =
         )}
     </div>
   );
+};
+
+const quoteStyle = {
+  fontWeight:"bold",
+  textAlign: "right"
 };
 
 export default YearsStat;
